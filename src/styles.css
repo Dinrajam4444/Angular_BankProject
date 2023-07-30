@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+
+.d {
+    transition: .5s ease-in-out;
+}
+
+#d:hover {
+    transform: scale(1.06);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
+}

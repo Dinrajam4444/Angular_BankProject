@@ -1,0 +1,48 @@
+nav{
+    background-color:#6cd3d7de ;
+  
+    align-items: center;
+}
+h2{
+    color:#17888c;
+}
+h4{
+    margin-top: 4%;
+}
+
+#homeleft{
+    /* background-color:#8fc4c8 ; */
+    margin-top:15vh;
+    width: 100%;
+    padding-left: 15%;
+    /* margin-left: 5%; */
+    /* padding-left: 50px;
+    padding-right: 50px;
+     */
+
+    
+}
+img{
+    
+    padding-left: 15%;
+    padding-top: 15%;
+    height: 100%;
+}
+
+@media screen and (max-width: 970px) {
+    img {
+        padding-left: 4%;
+        width: 100%;
+        height: 70%;
+    }
+  }
+
+#navbar1{
+    width: 100%;
+    height: 100%;
+    padding-left: 7%;
+}
+
+#navbarNavDropdown ul li{
+    cursor: pointer;
+}

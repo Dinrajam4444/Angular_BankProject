@@ -1,0 +1,38 @@
+
+<h1 class="fs-3 mt-3 ms-3 text-danger">
+    Hi {{data}}
+</h1>
+
+<div>
+        <div class="text-center row w-100">
+            <div class="col-lg-6 col-md-6 col-sm-12 mt-12">
+                <form id="d" style="background-color: rgb(120, 102, 20);margin-top: 100px; border-radius: 20px;"
+                    class=" p-4 w-75 container " action="">
+                    <h1 style="color:white ; ">Sign In</h1>
+                    
+                    <div class="mt-2 p-2">
+                        <input id="u1" name="uname" class="form-control mt-2 p-2" type="text" [placeholder]="pdata">
+                    </div>
+
+
+                    <div class="mt-2 p-2">
+                        <input id="p1" name="psw" class="form-control mt-2 p-2" type="password" placeholder="Enter password">
+                    </div>
+
+
+
+                    <button (click)="login()" type="button" class="btn btn-outline-warning m-2">LogIn</button>
+                    <p style="color: white;">Don't have an account?
+                        <a style="color: white; text-decoration: none;"><strong>Create an
+                                account</strong></a>
+                    </p>
+                </form>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-0 mt-0 p-4">
+                <img id="d" style="height: 500px;" src="https://i.postimg.cc/gjwrCkxK/Senza-titolo-1.png" alt="">
+            </div>
+
+        </div>
+    </div>
+
+    
