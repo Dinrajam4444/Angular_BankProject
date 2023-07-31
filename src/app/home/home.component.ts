@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import {Router} from '@angular/router';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
 
+  constructor(private rout:Router) { }
+
+  //methods
+  
+  logout(){
+    this.rout.navigateByUrl("")
+  }
 }

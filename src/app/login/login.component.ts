@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import{Router} from '@angular/router'
 
 @Component({
   selector: 'app-login',
@@ -9,10 +10,11 @@ export class LoginComponent {
 
   data="Happy banking with us.."
   pdata="Enter account number"
+
   acno:any=""
   psw:any=""
 
-  constructor() { }
+  constructor(private rout2:Router) { }
 
   ngOnInit(): void {
   }
@@ -27,33 +29,33 @@ export class LoginComponent {
   // }
 
 
-  login(a:any,b:any){
+  login(){
 
     // alert("login clicked")
 
-    this.acno=a.value
-    this.psw=b.value
+    // this.acno=a.value
+    // this.psw=b.value
     console.log(this.acno);
     console.log(this.psw);
-    
-    
+
+    this.rout2.navigateByUrl("home")
     
   }
 
-  acnoChange(event:any){
+  // acnoChange(event:any){
 
-    // console.log(event.target.value);
-    this.acno=event.target.value
-    console.log(this.acno);
+  //   // console.log(event.target.value);
+  //   this.acno=event.target.value
+  //   console.log(this.acno);
     
-  }
+  // }
 
-  acnoPassword(event:any){
+  // acnoPassword(event:any){
 
-    // console.log(event.target.value);
-    this.psw=event.target.value
-    console.log(this.psw)  
+  //   // console.log(event.target.value);
+  //   this.psw=event.target.value
+  //   console.log(this.psw)  
     
-  }
+  // }
 
 }

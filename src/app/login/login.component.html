@@ -11,19 +11,19 @@
                     <h1 style="color:white ; ">Sign In</h1>
                     
                     <div class="mt-2 p-2">
-                        <input #acno id="u1" name="acno" class="form-control mt-2 p-2" type="text" [placeholder]="pdata">
+                        <input [(ngModel)]="acno" id="u1" name="acno" class="form-control mt-2 p-2" type="text" [placeholder]="pdata">
                     </div>
 
 
                     <div class="mt-2 p-2">
-                        <input #psw id="p1" name="psw" class="form-control mt-2 p-2" type="password" placeholder="Enter password">
+                        <input [(ngModel)]="psw" id="p1" name="psw" class="form-control mt-2 p-2" type="password" placeholder="Enter password">
                     </div>
 
 
 
-                    <button (click)="login(acno,psw)" type="button" class="btn btn-outline-warning m-2">LogIn</button>
+                    <button (click)="login()" type="button" class="btn btn-outline-warning m-2">LogIn</button>
                     <p style="color: white;">Don't have an account?
-                        <a style="color: white; text-decoration: none;"><strong>Create an
+                        <a style="color: white; text-decoration: none;" routerLink="register"><strong>Create an
                                 account</strong></a>
                     </p>
                 </form>
