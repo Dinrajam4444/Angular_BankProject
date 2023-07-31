@@ -14,10 +14,10 @@ export class LoginComponent {
   acno:any=""
   psw:any=""
 
-  constructor(private rout2:Router) { }
+  constructor(private rout:Router) { }
 
-  ngOnInit(): void {
-  }
+  // ngOnInit(): void {
+  // }
 
   // login(a:any,b:any){
 
@@ -38,7 +38,7 @@ export class LoginComponent {
     console.log(this.acno);
     console.log(this.psw);
 
-    this.rout2.navigateByUrl("home")
+    this.rout.navigateByUrl("home")
     
   }
 
