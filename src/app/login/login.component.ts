@@ -1,12 +1,13 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import{Router} from '@angular/router'
+import { DataService } from '../service/data.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
 
   data="Happy banking with us.."
   pdata="Enter account number"
@@ -14,10 +15,16 @@ export class LoginComponent {
   acno:any=""
   psw:any=""
 
-  constructor(private rout:Router) { }
+  serviceData:any=""
 
-  // ngOnInit(): void {
-  // }
+  constructor(private rout:Router,private ds:DataService) { }
+
+  ngOnInit(): void {
+
+    console.log(this.ds.sData);
+    this.serviceData=this.ds.sData
+    
+  }
 
   // login(a:any,b:any){
 
@@ -30,6 +37,8 @@ export class LoginComponent {
 
 
   login(){
+
+    this.ds.accessData("hello")
 
     // alert("login clicked")
 
