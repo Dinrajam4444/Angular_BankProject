@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -5,12 +6,18 @@ import { Injectable } from '@angular/core';
 })
 export class DataService {
 
-  sData="Data inside service file"
+  
 
-  constructor() { }
+  constructor(private http:HttpClient) { }
 
-  accessData(data:any){
-    console.log(data);
-    
+  signupApi(acno:any,uname:any,psw:any){
+
+    const bodyData={
+      acno,
+      uname,
+      psw
+    }
+    return this.http.post('http://localhost:3000/bankuser/user-register',bodyData)
   }
+ 
 }
