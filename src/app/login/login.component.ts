@@ -1,43 +1,77 @@
-import {Component, OnInit} from '@angular/core';
-import{Router} from '@angular/router'
+import { Component } from '@angular/core';
+import{ Router } from '@angular/router'
 import { DataService } from '../service/data.service';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
 
   data="Happy banking with us.."
   pdata="Enter account number"
 
-  acno:any=""
-  psw:any=""
+  // acno:any=""
+  // psw:any=""
 
  
 
-  constructor(private rout:Router,private ds:DataService) { }
+  constructor(private rout:Router,private ds:DataService, private fb:FormBuilder) { }
 
-  ngOnInit(): void {
+  
+  // model form
 
+  loginForm=this.fb.group({
+
+    acno:['',[Validators.required,Validators.pattern('[0-9]+')]],
+    psw:['',[Validators.required,Validators.pattern('[0-9a-zA-Z]+')]]
+
+  })
     
-    
-  }
-
-
 
 
   login(){
 
-    
-    console.log(this.acno);
-    console.log(this.psw);
+    if(this.loginForm.valid){
+      var acno=this.loginForm.value.acno
+      var psw=this.loginForm.value.psw
 
-    this.rout.navigateByUrl("home")
+      // api call
+
+      this.ds.loginApi(acno,psw).subscribe((response:any)=>{
+        alert(`${response.uname} login success`)
+
+        // store uname,acno in local storage
+
+        localStorage.setItem("currentUname",response.uname)
+        localStorage.setItem("currentAcno",response.acno)
+
+        this.rout.navigateByUrl("home")
+
+        
+      },
+      response=>{
+        alert(response.error)
+      }
+      )
+
+    }
+    else{
+      alert("invalid form")
+    }
+    
+
+    
     
   }
 
+  }
+
+
   
 
-}
+  
+
+

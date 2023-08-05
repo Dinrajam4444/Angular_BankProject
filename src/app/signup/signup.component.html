@@ -4,32 +4,45 @@
 <div>
     <div class="text-center row w-100">
         <div class="col-lg-6 col-md-6 col-sm-12 mt-12">
-            <form id="d" style="background-color: rgb(120, 102, 20);margin-top: 100px; border-radius: 20px;"
+            <form [formGroup]="signupModelForm" id="d" style="background-color: rgb(120, 102, 20);margin-top: 100px; border-radius: 20px;"
                 class=" p-4 w-75 container " action="">
                 <h1 style="color:white ; ">Sign Up</h1>
 
                 <div class="mt-2 p-2">
-                    <input id="acnum" name="acno" class="form-control mt-2 p-2" type="text" placeholder="Enter Acno">
+                    <input formControlName="acno" id="acnum" name="acno" class="form-control mt-2 p-2" type="text" placeholder="Enter Acno">
+                    <div *ngIf="signupModelForm.get('acno')?.errors&&signupModelForm.get('acno')?.touched">
+                        <p class="text-danger">Accept numbers only</p>
+                    </div>
                 </div>
 
 
                 <div class="mt-2 p-2">
-                    <input id="u2" name="uname" class="form-control mt-2 p-2" type="text" placeholder="Enter Usrename">
+                    <input formControlName="uname" id="u2" name="uname" class="form-control mt-2 p-2" type="text" placeholder="Enter Username">
+                    <div *ngIf="signupModelForm.get('uname')?.errors&&signupModelForm.get('uname')?.touched">
+                        <p class="text-danger">Accept letters only</p>
+                    </div>
                 </div>
 
                 <div class="mt-2 p-2">
-                    <input id="p2" name="psw" class="form-control mt-2 p-2" type="password" placeholder="Enter Password">
+                    <input formControlName="psw" id="p2" name="password" class="form-control mt-2 p-2" type="password" placeholder="Enter Password">
+                    <div *ngIf="signupModelForm.get('psw')?.errors&&signupModelForm.get('psw')?.touched">
+                        <p class="text-danger">Accept numbers and letters only</p>
+                    </div> 
                 </div>
 
                 <div class="mt-2 p-2">
-                    <input id="cpsw" name="cpsw" class="form-control mt-2 p-2" type="password" placeholder="Confirm Password">
+                    <input formControlName="cpsw" id="cpsw" name="cpassword" class="form-control mt-2 p-2" type="password" placeholder="Confirm Password">
+                </div>
+
+                <div *ngIf="pswMatch">
+                    <p class="text-danger">Password doesn't match</p>
                 </div>
 
                 <button (click)="signup()" type="button" class="btn btn-outline-warning m-2">SignUp</button>
                 
             </form>
         </div>
-        <div class="col-lg-6 col-md-6 col-sm-0 mt-0 p-4">
+        <div class="col-lg-6 col-md-6 col-sm-0 mt-5 p-4">
             <img id="d" style="height: 500px;" src="https://i.postimg.cc/Kz0tFX8k/kisspng-animation-bank-finance-illustration-flat-bank-5a8d5af65082f9-6596234615192133023298.jpg" alt="">
         </div>
 
