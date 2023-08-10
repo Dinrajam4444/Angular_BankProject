@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light container-fluid" id="navbar1">
-  <a class="navbar-brand mx-3" href="#">HOME</a>
+  <a class="navbar-brand mx-3" href="home">HOME <i class="fa-solid fa-house-user"></i> </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
     aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -7,26 +7,28 @@
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
       <li class="nav-item active">
-        <button (click)="profileView()" class="nav-link mx-4" data-bs-toggle="modal" data-bs-target="#staticBackdrop1"><i
-            class="fa-solid fa-user"></i>View Profile <span class="sr-only">(current)</span></button>
+        <button (click)="profileView()" class="nav-link mx-4" data-bs-toggle="modal"
+          data-bs-target="#staticBackdrop1"><i class="fa-solid fa-user"></i>View Profile <span
+            class="sr-only">(current)</span></button>
       </li>
       <li class="nav-item">
-        <button class="nav-link mx-4" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button"
-          aria-controls="offcanvasExample"><i class="fa-solid fa-sack-dollar"></i>Balance Enquiry</button>
+        <button (click)="getBalance()" class="nav-link mx-4" data-bs-toggle="offcanvas" href="#offcanvasExample"
+          role="button" aria-controls="offcanvasExample"><i class="fa-solid fa-sack-dollar"></i>Balance Enquiry</button>
       </li>
       <li class="nav-item button">
         <button class="nav-link mx-4" data-bs-toggle="modal" data-bs-target="#staticBackdrop2"><i
             class="fa-solid fa-money-bill-transfer"></i>Money Transfer</button>
       </li>
       <li class="nav-item">
-        <button class="nav-link mx-4" href="#"><i class="fa-solid fa-file-invoice"></i>Account Statement</button>
+        <button (click)="statement()" class="nav-link mx-4" href="#"><i class="fa-solid fa-file-invoice"></i>Account Statement</button>
       </li>
       <li class="nav-item">
 
-        <button class="nav-link mx-4" href="#" (click)="logout()"><i class="fa-solid fa-right-from-bracket"></i>Log Out</button>
+        <button class="nav-link mx-4" href="#" (click)="logout()"><i class="fa-solid fa-right-from-bracket"></i>Log
+          Out</button>
       </li>
       <li class="nav-item">
-        <button class="nav-link mx-4" href="#"><i class="fa-sharp fa-solid fa-person-circle-minus"></i>Delete Account
+        <button (click)="deleteAc()" class="nav-link mx-4" href="#"><i class="fa-sharp fa-solid fa-person-circle-minus"></i>Delete Account
         </button>
       </li>
       <li class="nav-item mx-5">
@@ -40,18 +42,20 @@
 <div class="row" style="height: 41vh;width: 100%;margin-bottom: 14%;">
   <div class="col-md-6 col-sm-12">
     <div id="homeleft">
-      <h1 class="text-center mt-3 mb-5" style="color: rgb(6, 76, 163);">Welcome {{user}}</h1>
-      <h2 class="text-center">ENJOY NET BANKING WITH SBI</h2>
+      <h1 [ngClass]="shareAcno?'c':''" class="text-center mt-3 mb-5" style="color: rgb(6, 76, 163);">Welcome {{user}}</h1>
+      <h2 [ngClass]="shareAcno?'c':''" class="text-center" style="color: brown;">ENJOY NET BANKING WITH SBI</h2>
 
-      <h4 class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint eum reprehenderit, saepe laudantium nulla natus,
+      <p [ngClass]="shareAcno?'c':''" class="text-center fs-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint eum reprehenderit, saepe
+        laudantium nulla natus,
         mollitia totam, voluptatibus nobis perferendis beatae tempore molestias provident modi? Obcaecati natus earum
         commodi! Optio.
-      </h4>
+      </p>
+      <app-delete (onDelete)="deleteAccount($event)" (onCancel)="cancel()" [childAcno]="shareAcno"></app-delete>
     </div>
   </div>
   <div class="col-md-6 col-sm-12 container text-center">
 
-    <img src="https://i.postimg.cc/2SbS0hRX/bank.jpg" alt="">
+    <img [ngClass]="shareAcno?'c':''" src="https://i.postimg.cc/B6ZkrHm8/24.jpg" alt="">
 
   </div>
 </div>
@@ -64,7 +68,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="staticBackdropLabel">User Profile</h1>
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Profile Details</h1>
         <button type="button" class="btn-close btn btn-danger" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -88,26 +92,27 @@
 
 <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
   <div class="offcanvas-header">
-    <h1 class="offcanvas-title" id="offcanvasExampleLabel" style="color:rgb(24,137,141);font-weight:700;">Balance
+    <h1 class="offcanvas-title" id="offcanvasExampleLabel" style="color:rgb(45, 144, 16);font-weight:700;">Balance
       Details</h1>
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
   <div class="offcanvas-body">
     <div>
-      Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists, etc.
+      <!-- Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists, etc. -->
 
-      <img src="https://i.postimg.cc/2SbS0hRX/bank.jpg" alt="" style="height: 50vh; margin-left: -10%;">
+      <img src="https://i.postimg.cc/SsfwnVvN/10.jpg" alt="" style="height: 50vh; margin-left: -10%;">
     </div>
     <div class="dropdown mt-3">
-      <button class="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown"
+      <!-- <button class="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown"
         style="background-color:rgb(24,137,141);">
         Dropdown button
-      </button>
+      </button> -->
       <div>
-        <h3>hi "Username"</h3>
+        <h3>Hi {{balanceData.uname}}</h3>
         <p>
-          your current balance in account number 12345 is
+          Your current balance in account number {{acno}} is
         </p>
+        <h4 style="color:brown" class="mt-4">Balance : {{balanceData.balance}}</h4>
       </div>
       <ul class="dropdown-menu">
         <li><a class="dropdown-item" href="#">Action</a></li>
@@ -118,7 +123,7 @@
   </div>
 </div>
 
-<!------------------------------------Money Transfer-------------------------------->
+<!------------------------------------ Money Transfer-------------------------------->
 
 <div class="modal fade " style="height: 100vh;" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false"
   tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -129,20 +134,46 @@
           Transfer</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <img src="https://i.postimg.cc/2SbS0hRX/bank.jpg" alt="" style="height: 40vh; margin-left: -10%;">
+      <img src="https://i.postimg.cc/B6ZkrHm8/24.jpg" alt="" style="height: 40vh; margin-left: -10%;">
       <div class="modal-body">
 
-        <form action="">
-          <input type="text" name="acc" id="acc1" class="form-control" placeholder="Recipient Account Number">
-          <input type="text" name="amt" id="amt1" class="form-control mt-2" placeholder="Amount to transfer">
-          <input type="password" name="pass" id="pass1" class="form-control mt-2" placeholder="Password">
+        <form [formGroup]="moneyTransferForm" action="">
+
+          <input formControlName="toAcno" type="text" name="acc" id="acc1" class="form-control"
+            placeholder="Recipient Account Number">
+
+          <div *ngIf="moneyTransferForm.get('toAcno')?.errors&&moneyTransferForm.get('toAcno')?.touched">
+            <p class="text-danger">Accepts numbers only</p>
+          </div>
+
+          <input formControlName="amount" type="text" name="amt" id="amt1" class="form-control mt-2"
+            placeholder="Amount to transfer">
+
+          <div *ngIf="moneyTransferForm.get('amount')?.errors&&moneyTransferForm.get('amount')?.touched">
+            <p class="text-danger">Accepts numbers only</p>
+          </div>
+
+          <input formControlName="psw" type="password" name="pass" id="pass1" class="form-control mt-2"
+            placeholder="Password">
+
+          <div *ngIf="moneyTransferForm.get('psw')?.errors&&moneyTransferForm.get('psw')?.touched">
+            <p class="text-danger">Accepts numbers and letters only</p>
+          </div>
+
+          <div class="mt-5">
+            <button (click)="transfer()" type="button" class="btn btn-success container text-center w-100">Transfer money</button>
+          </div>
+
         </form>
       </div>
+
       <div class="modal-footer ">
-        <button type="button" class="btn btn-success container text-center w-50">Transfer money</button>
+
+        <p [ngClass]="status?'s2':'s1'" class="me-auto fs-4 text-center">{{message}}</p>
         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
 
       </div>
+
     </div>
   </div>
 </div>

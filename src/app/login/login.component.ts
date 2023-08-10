@@ -47,6 +47,9 @@ export class LoginComponent {
 
         localStorage.setItem("currentUname",response.uname)
         localStorage.setItem("currentAcno",response.acno)
+        localStorage.setItem("token",JSON.stringify(response.token))
+        // console.log(response.token);
+        
 
         this.rout.navigateByUrl("home")
 

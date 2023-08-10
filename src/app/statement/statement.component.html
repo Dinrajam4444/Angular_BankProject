@@ -1,39 +1,53 @@
-
+<h5 class="text-center w-50">{{date | date : 'medium'}}</h5>
 <div class="row" style="width: 100%;height: 70vh;">
     <div class="col-md-6 col-sm-12">
 <div class="mt-5 ">
     <h2>Account Statement</h2>
 </div>
-<div >
+<div>
     <div class="pagination container " style="height: 100%; width: 100%;">
         
-        <button type="button" class="active btn " >All</button>
-        <button type="button" class="btn ">Debit</button>
-        <button type="button" class="btn ">Credit</button>
+        <button (click)="searchKeyChange('')" type="button" class="active btn" >All</button>
+        <button (click)="searchKeyChange('DEBIT')" type="button" class="btn ">Debit</button>
+        <button (click)="searchKeyChange('CREDIT')" type="button" class="btn ">Credit</button>
       </div>
 </div>
 <div>
-    <table  class="bg-primary container text-center mx-2 ">
-        <tr>
-            <th>#</th>
-            <th>Type</th>
-            <th>Amount</th>
-            <th>Date</th>
-        </tr>
+    <table id="d" class="table table-primary container text-center mx-2">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Type</th>
+                <th scope="col">Amount</th>
+                <th scope="col">Account Holder Name</th>
+                <th scope="col">Date</th>
+            </tr>
+        </thead>
        
+        <tbody>
+            <tr *ngFor="let i of transactions | data : searchKey:'type' ; let j=index">
+                <td>{{j+1}}</td>
+                <td>{{i.type}}</td>
+                <td>{{i.amount}}</td>
+                <td>{{i.user}}</td>
+                <td>{{i.date}}</td>
+            </tr>
+        </tbody>
+
     </table>
 </div>
-<div class="mt-5 " >
-<button type="button" class="btn btn-primary" id="exportbtn">Export As<i class="fa-solid fa-file mx-2" style="color: #f9b90d;"></i></button>
+<div class="mt-5" >
+<button (click)="convertPdf()" type="button" class="btn btn-primary" id="exportbtn">Export As<i class="fa-solid fa-file-pdf mx-2 fs-5" style="color: #f9b90d;"></i></button>
 </div>
 </div>
 <div class="col-md-6 col-sm-12">
     <div id="imgpart">
-    <img src="https://i.postimg.cc/2SbS0hRX/bank.jpg" alt="">
+    <img src="https://i.postimg.cc/SsfwnVvN/10.jpg" alt="">
     </div>
     <div>
-        <button id="backTo" type="button" class="btn  mt-3 text-center">Back To<i class="fa-solid fa-house fa-beat-fade mx-2" style="color: #f9b90d;"></i></button>
+        <button (click)="backToHome()" id="backTo" type="button" class="btn text-center">Back To<i class="fa-solid fa-house fa-beat-fade mx-2" style="color: #f9b90d;"></i></button>
     </div>
 
 </div>
 </div>
+

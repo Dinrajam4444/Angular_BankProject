@@ -1,3 +1,9 @@
+.s1{
+    color: red;
+}
+.s2{
+    color: green;
+}
 
 nav{
     background-color:#6cd3d7de ;
@@ -13,7 +19,7 @@ h4{
 
 #homeleft{
     /* background-color:#8fc4c8 ; */
-    margin-top:15vh;
+    margin-top:4vh;
     width: 100%;
     padding-left: 15%;
     /* margin-left: 5%; */
@@ -26,8 +32,8 @@ h4{
 img{
     
     padding-left: 15%;
-    padding-top: 15%;
-    height: 100%;
+    padding-top: 4%;
+    height: 54%;
 }
 
 @media screen and (max-width: 970px) {

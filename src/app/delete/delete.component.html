@@ -1,0 +1,14 @@
+<div *ngIf="childAcno" class="p-3 my-2 bg-light text-center w-50 container"
+    style="color: rgb(5, 53, 111);  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);">
+    <h3>Are You Sure ! </h3>
+    <h5>Do You Want to Delete Your Bank Account <i class="fa-solid text-warning fa-calendar-xmark fa-fade"></i>
+        {{childAcno}} ?</h5>
+    <button (click)="acDelete()" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);"
+        class="btn btn-outline-danger">
+        Yes
+    </button>
+    <button (click)="noClick()" class="btn btn-outline-success ms-3"
+        style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);">
+        No
+    </button>
+</div>

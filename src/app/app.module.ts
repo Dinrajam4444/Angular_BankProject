@@ -10,6 +10,9 @@ import { HomeComponent } from './home/home.component';
 import { StatementComponent } from './statement/statement.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { DatePipe } from '@angular/common';
+import { DeleteComponent } from './delete/delete.component';
+import { DataPipe } from './dataPipe/data.pipe';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,9 @@ import { HttpClientModule } from '@angular/common/http';
     FooterComponent,
     SignupComponent,
     HomeComponent,
-    StatementComponent
+    StatementComponent,
+    DeleteComponent,
+    DataPipe
   ],
   imports: [
     BrowserModule,
@@ -29,7 +34,7 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule
     
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
